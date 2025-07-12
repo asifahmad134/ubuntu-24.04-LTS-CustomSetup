@@ -1,0 +1,1 @@
+oh-my-posh init pwsh --config "C:\OMP\atomicBit.omp.json" | Invoke-Expression
