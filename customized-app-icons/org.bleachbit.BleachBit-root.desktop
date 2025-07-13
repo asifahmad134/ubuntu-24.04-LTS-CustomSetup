@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=BleachBit as Administrator
+Comment=Free space and maintain privacy
+GenericName=Unnecessary file cleaner
+TryExec=bleachbit
+Exec=pkexec bleachbit
+Icon=/usr/share/icons/bleachbit.svg
+Categories=System;Utility
+Keywords=cache;clean;free;performance;privacy;
+StartupNotify=true
+StartupWMClass=bleachbit
+X-GNOME-UsesNotifications=true
+X-Desktop-File-Install-Version=0.28
+

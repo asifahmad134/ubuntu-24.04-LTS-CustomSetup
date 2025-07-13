@@ -20,19 +20,19 @@ rm -Rf ~/snap
 sudo apt autoremove --purge
 ```
 
-### purge these, combined (450+ MB)
+### purge these, combined (444+ MB freed)
 
 ```
 sudo apt purge ubuntu-report apport apport-gtk brltty orca gnome-accessibility-themes fonts-noto-cjk speech-dispatcher* libpinyin* ibus* pocketsphinx* espeak* liblouis* hplip* eog
 ```
 
-### Remove bunch of CUPS stuff, also printing & printer drivers (20+MB)
+### Remove bunch of CUPS stuff, also printing & printer drivers (21+ MB freed)
 
 ```
 sudo apt purge 'cups*' 'foomatic*' printer-driver-brlaser* printer-driver-foo2zjs-common* printer-driver-ptouch* printer-driver-c2esp* printer-driver-min12xxw* printer-driver-sag-gdi*
 ```
 
-### CLEAN remaining packages, 49MB+
+### CLEAN remaining packages, (45+ MB freed)
 
 ```
 sudo apt autoremove --purge
@@ -40,11 +40,11 @@ sudo apt autoremove --purge
 sudo apt autopurge
 ```
 
-### Remove all backgrounds (50MB+) for 25.04, default background name
+### Remove all backgrounds (152+ MB freed), except for 25.04 default background.
 ```
-sudo rm /usr/share/backgrounds/!("warty-final-ubuntu.png")
+sudo rm -fdr /usr/share/backgrounds/!("warty-final-ubuntu.png")
 ```
-### for removing old kernels, first identify installed and then
+### for removing old kernels, first identify installed and then proceed
 
 ```
 dpkg --list | grep -i linux-image
@@ -59,18 +59,19 @@ sudo update-grub
 ```
 sudo apt update -y && sudo apt upgrade -y
 apt search <keyword>
+sudo apt --fix-broken install
 ```
 
-## ✴️✴️✴️ necessary pacakages
+## ✴️✴️✴️ necessary pacakages (125+ MB required)
 
 ```
-sudo apt install amberol curl gedit gedit-plugins git gnome-shell-extension-manager gnome-tweaks gnome-calendar loupe nautilus-admin showtime transmission tree thunar lsd foliate
+sudo apt install amberol curl gedit gedit-plugins git gnome-shell-extension-manager gnome-tweaks gnome-calendar loupe nautilus-admin showtime transmission tree thunar foliate
 ```
 
 ## ✳️✳️✳️ suggestions / optional pacakages
 
 ```
-sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot thunar-media-tags-plugin gh
+sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot thunar-media-tags-plugin gh lsd
 ```
 
 ## 🎴🎴🎴 Install Node.js 22.x LTS, 24.x Current
@@ -87,11 +88,22 @@ sudo npm install -g npm@latest npm-check-updates typescript nodemon pnpm yarn vi
 
 ```
 sudo bash -c "$(curl -s https://ohmyposh.dev/install.sh)" -- -d /usr/bin
+// move themes dir,
+sudo mv /root/.cache/oh-my-posh/themes/ ~/.oh-my-posh
+sudo chmod 777 .oh-my-posh/
 // add this line at the end of .bashrc
 eval "$(oh-my-posh init bash --config ~/jandedobbeleer.omp.json)"
 // refresh bash after selection of each theme
 exec bash
 ```
+
+## 🌐🌐🌐 google-chrome
+
+```
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
 
 #### Description of files in oh-my-posh folder
 
@@ -130,6 +142,45 @@ sudo rm /opt/TickTick/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /opt/TickTic
 sudo rm /usr/lib/replit/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /usr/lib/replit/LICENSES.chromium.html
 - vscode
 sudo rm /usr/share/code/LICENSES.chromium.html /usr/share/code/resources/app/LICENSE.rtf && sudo rm /usr/share/code/locales/!("en-GB.pak"|"en-US.pak") && sudo rm -fdr /usr/share/code/resources/app/licenses
+```
+
+# 📦📦📦 git && ssh setup
+
+## git conf
+```
+git config --global user.name "---"
+git config --global user.email "---"
+git config --global color.ui auto
+git config --global --add safe.directory /mnt/d/make-ubuntu-great-again
+```
+## ssh SETUP
+✅ 1. Check for Existing SSH Keys (if Yes, do steps 3 & 6)
+```
+ls -al ~/.ssh
+```
+✅ 2. Generate a New SSH Key (only if above don't exist)
+```
+ssh-keygen -t ed25519 -C "--email--"
+```
+✅ 3. Add SSH Key to SSH Agent
+```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+✅ 4. Copy the Public Key (only if new is generated)
+```
+cat ~/.ssh/id_ed25519.pub
+```
+#### WARNING: UNPROTECTED PRIVATE KEY FILE!/ NOT accessible by others
+```
+chmod 600 /home/asif/.ssh/id_ed25519
+```
+✅ 5. Add SSH Key to GitHub (generated in steps 2 & 4)
+✅ 6. Test the github Connection
+```
+rm ~/.ssh/known_hosts
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+ssh -T git@github.com
 ```
 
 # 🪛📜💻 Important Scripts

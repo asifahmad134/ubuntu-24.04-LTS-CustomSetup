@@ -1,0 +1,58 @@
+{
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.sort.json": "never",
+    "source.sortImports": "always"
+  },
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorWidth": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "Maple Mono NF, UbuntuSansMono NF",
+  "editor.fontLigatures": "'calt', 'zero', 'cv03', 'ss01', 'ss03','ss09', 'ss10', 'ss11'",
+  "editor.fontSize": 16,
+  "editor.fontVariations": true,
+  "editor.fontWeight": 400,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "interval",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "editor.quickSuggestions": {
+    "comments": true,
+    "other": true,
+    "strings": true
+  },
+  "emmet.includeLanguages": {
+    "astro": "html",
+    "jsx": "jsx",
+    "tsx": "tsx"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "files.autoSave": "afterDelay",
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "livePreview.openPreviewTarget": "External Browser",
+  "markdown.extension.completion.enabled": true,
+  "markdown.extension.preview.autoShowPreviewToSide": true,
+  "tailwind-fold.autoFold": false,
+  "tailwind-fold.unfoldedTextOpacity": 0.75,
+  "tailwind-fold.unfoldIfLineSelected": true,
+  "tailwindCSS.emmetCompletions": true,
+  "terminal.integrated.smoothScrolling": true,
+  "update.mode": "none",
+  "window.density.editorTabHeight": "compact",
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.scrollToSwitchTabs": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.smoothScrolling": true,
+  "workbench.startupEditor": "none"
+}
