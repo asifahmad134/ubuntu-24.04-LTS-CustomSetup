@@ -1,6 +1,9 @@
 # 🆕🆒🆓 Clean Ubuntu (24.04+)
 
 # _Make Ubuntu great again!!!!!_
+When installing Ubuntu, choose ***DEFAULT SELECTION*** === *(Just the essentials, web browser and basic utilities)*.
+All of the below removal and installation is to make ubuntu more better and suitable for development. 
+
 
 # 🔥🔥🔥 PURGE without loosing ubuntu-desktop
 
@@ -48,9 +51,10 @@ sudo rm -fdr /usr/share/backgrounds/!("warty-final-ubuntu.png")
 
 ```
 dpkg --list | grep -i linux-image
-sudo apt remove --purge linux-image-[version]-generic
-sudo apt remove --purge linux-headers-[version]-generic
-sudo apt autoremove --purge
+sudo apt purge linux-image-[version]-generic
+dpkg --list | grep -i linux-headers
+sudo apt purge linux-headers-[version]*
+sudo apt autopurge
 sudo update-grub
 ```
 
@@ -62,13 +66,13 @@ apt search <keyword>
 sudo apt --fix-broken install
 ```
 
-## ✴️✴️✴️ necessary pacakages (125+ MB required)
+## ✴️✴️✴️ necessary packages (125+ MB required)
 
 ```
-sudo apt install amberol curl gedit gedit-plugins git gnome-shell-extension-manager gnome-tweaks gnome-calendar loupe nautilus-admin showtime transmission tree thunar foliate
+sudo apt install amberol curl gedit gedit-plugins git gnome-shell-extension-manager gnome-tweaks gnome-calendar loupe nautilus-admin showtime transmission tree thunar foliate systemd-zram-generator
 ```
 
-## ✳️✳️✳️ suggestions / optional pacakages
+## ✳️✳️✳️ suggestions / optional packages
 
 ```
 sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot thunar-media-tags-plugin gh lsd
@@ -80,7 +84,7 @@ sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fas
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
 curl -fsSL https://deb.nodesource.com/setup_24.x | sudo bash -
 sudo apt install -y nodejs
-// importan global packages needed for development
+// important global packages needed for development
 sudo npm install -g npm@latest npm-check-updates typescript nodemon pnpm yarn vite
 ```
 
@@ -107,7 +111,7 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 #### Description of files in oh-my-posh folder
 
-- all are changed/moded themes in this folder, except....
+- all are changed/modded themes in this folder, except....
 - **_25-04.bashrc_**<br>
   This is default .bashrc in ubuntu 25.04
 - **_omp.bashrc_**<br>
@@ -176,7 +180,7 @@ cat ~/.ssh/id_ed25519.pub
 chmod 600 /home/asif/.ssh/id_ed25519
 ```
 ✅ 5. Add SSH Key to GitHub (generated in steps 2 & 4)
-✅ 6. Test the github Connection
+✅ 6. Test the GitHub Connection
 ```
 rm ~/.ssh/known_hosts
 ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -209,3 +213,29 @@ ssh -T git@github.com
 #### Miscellaneous
 
 > **_update-all-icon-caches.sh_** This updates icons caches
+
+# ✅✅✅ Use systemd-zram-generator — Best for Ubuntu 24.04+ and newer
+This is the modern, upstream-supported way to enable ZRAM. It’s fast, efficient, flexible, and maintained directly by systemd developers. Since Ubuntu 25.04 inherits these improvements, this method is more future-proof than older zram-tools.
+
+##🔧 Steps for Optimal ZRAM Setup with 8GB RAM
+#### Install the generator
+```
+sudo apt update
+sudo apt install systemd-zram-generator
+```
+#### Create config file / Recommended config for 8GB RAM
+```
+sudo nano /etc/systemd/zram-generator.conf
+
+[zram0]
+zram-size = ram / 2
+compression-algorithm = zstd
+```
+#### Apply changes / Verify
+```
+sudo systemctl daemon-reexec
+// or reboot
+cat /proc/swaps
+swapon --show
+```
+
