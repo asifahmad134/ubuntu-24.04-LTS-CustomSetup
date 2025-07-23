@@ -1,9 +1,9 @@
 # 🆕🆒🆓 Clean Ubuntu (24.04+)
 
 # _Make Ubuntu great again!!!!!_
-When installing Ubuntu, choose ***DEFAULT SELECTION*** === *(Just the essentials, web browser and basic utilities)*.
-All of the below removal and installation is to make ubuntu more better and suitable for development. 
 
+When installing Ubuntu, choose **_DEFAULT SELECTION_** === _(Just the essentials, web browser and basic utilities)_.
+All of the below removal and installation is to make ubuntu more better and suitable for development.
 
 # 🔥🔥🔥 PURGE without loosing ubuntu-desktop
 
@@ -44,9 +44,11 @@ sudo apt autopurge
 ```
 
 ### Remove all backgrounds (152+ MB freed), except for 25.04 default background.
+
 ```
 sudo rm -fdr /usr/share/backgrounds/!("warty-final-ubuntu.png")
 ```
+
 ### for removing old kernels, first identify installed and then proceed
 
 ```
@@ -78,6 +80,13 @@ sudo apt install amberol curl gedit gedit-plugins git gnome-shell-extension-mana
 sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot thunar-media-tags-plugin gh lsd
 ```
 
+## 🌐🌐🌐 Install Google Chrome
+
+```
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
 ## 🎴🎴🎴 Install Node.js 22.x LTS, 24.x Current
 
 ```
@@ -100,14 +109,6 @@ eval "$(oh-my-posh init bash --config ~/jandedobbeleer.omp.json)"
 // refresh bash after selection of each theme
 exec bash
 ```
-
-## 🌐🌐🌐 google-chrome
-
-```
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-```
-
 
 #### Description of files in oh-my-posh folder
 
@@ -151,36 +152,50 @@ sudo rm /usr/share/code/LICENSES.chromium.html /usr/share/code/resources/app/LIC
 # 📦📦📦 git && ssh setup
 
 ## git conf
+
 ```
 git config --global user.name "---"
 git config --global user.email "---"
 git config --global color.ui auto
 git config --global --add safe.directory /mnt/d/make-ubuntu-great-again
 ```
+
 ## ssh SETUP
+
 ✅ 1. Check for Existing SSH Keys (if Yes, do steps 3 & 6)
+
 ```
 ls -al ~/.ssh
 ```
+
 ✅ 2. Generate a New SSH Key (only if above don't exist)
+
 ```
 ssh-keygen -t ed25519 -C "--email--"
 ```
+
 ✅ 3. Add SSH Key to SSH Agent
+
 ```
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
+
 ✅ 4. Copy the Public Key (only if new is generated)
+
 ```
 cat ~/.ssh/id_ed25519.pub
 ```
+
 #### WARNING: UNPROTECTED PRIVATE KEY FILE!/ NOT accessible by others
+
 ```
 chmod 600 /home/asif/.ssh/id_ed25519
 ```
+
 ✅ 5. Add SSH Key to GitHub (generated in steps 2 & 4)
 ✅ 6. Test the GitHub Connection
+
 ```
 rm ~/.ssh/known_hosts
 ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -215,15 +230,20 @@ ssh -T git@github.com
 > **_update-all-icon-caches.sh_** This updates icons caches
 
 # ✅✅✅ Use systemd-zram-generator — Best for Ubuntu 24.04+ and newer
+
 This is the modern, upstream-supported way to enable ZRAM. It’s fast, efficient, flexible, and maintained directly by systemd developers. Since Ubuntu 25.04 inherits these improvements, this method is more future-proof than older zram-tools.
 
 ##🔧 Steps for Optimal ZRAM Setup with 8GB RAM
+
 #### Install the generator
+
 ```
 sudo apt update
 sudo apt install systemd-zram-generator
 ```
+
 #### Create config file / Recommended config for 8GB RAM
+
 ```
 sudo nano /etc/systemd/zram-generator.conf
 
@@ -231,11 +251,12 @@ sudo nano /etc/systemd/zram-generator.conf
 zram-size = ram / 2
 compression-algorithm = zstd
 ```
+
 #### Apply changes / Verify
+
 ```
 sudo systemctl daemon-reexec
 // or reboot
 cat /proc/swaps
 swapon --show
 ```
-

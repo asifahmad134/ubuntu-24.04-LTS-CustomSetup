@@ -2,5 +2,10 @@
 
 	"font_face": "Maple Mono NF",
 	"font_size": 12,
+	"font_options": ["'calt', 'zero', 'cv03', 'ss01', 'ss03','ss09', 'ss10', 'ss11'",],
 	"theme": "Adaptive.sublime-theme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
 }
