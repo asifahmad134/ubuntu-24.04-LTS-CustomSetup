@@ -3,9 +3,8 @@
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "always",
-    "source.sort.json": "never",
-    "source.sortImports": "always"
+    "source.sortImports": "never",
+    "source.removeTrailingWhitespace": "explicit"
   },
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -32,21 +31,25 @@
     "jsx": "jsx",
     "tsx": "tsx"
   },
+  "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "*.css": "tailwindcss"
   },
   "files.autoSave": "afterDelay",
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "git.openRepositoryInParentFolders": "always",
   "livePreview.openPreviewTarget": "External Browser",
   "markdown.extension.completion.enabled": true,
   "markdown.extension.preview.autoShowPreviewToSide": true,
   "tailwind-fold.autoFold": false,
-  "tailwind-fold.unfoldedTextOpacity": 0.75,
   "tailwind-fold.unfoldIfLineSelected": true,
+  "tailwind-fold.unfoldedTextOpacity": 0.75,
   "tailwindCSS.emmetCompletions": true,
   "terminal.integrated.smoothScrolling": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",
+  "vsicons.dontShowNewVersionMessage": true,
   "window.density.editorTabHeight": "compact",
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "One Dark Pro Darker",
@@ -54,8 +57,5 @@
   "workbench.editor.scrollToSwitchTabs": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.smoothScrolling": true,
-  "workbench.startupEditor": "none",
-  "vsicons.dontShowNewVersionMessage": true,
-  "explorer.confirmDragAndDrop": false,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "workbench.startupEditor": "none"
 }

@@ -94,7 +94,9 @@ curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
 curl -fsSL https://deb.nodesource.com/setup_24.x | sudo bash -
 sudo apt install -y nodejs
 // important global packages needed for development
-sudo npm install -g npm@latest npm-check-updates typescript nodemon pnpm yarn vite
+sudo npm install -g npm@latest npm-check-updates typescript pnpm yarn vite
+sudo npm outdated -g --depth=0
+sudo npm update -g
 ```
 
 ## 🆘🆘🆘 oh-my-posh in /usr/bin
