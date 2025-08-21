@@ -11,7 +11,7 @@
   "editor.cursorWidth": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "Maple Mono NF, UbuntuSansMono NF",
-  "editor.fontLigatures": "'calt', 'zero', 'cv03', 'ss01', 'ss03','ss09', 'ss10', 'ss11'",
+  "editor.fontLigatures": "'calt', 'zero', 'cv03', 'ss03','ss09', 'ss10', 'ss11'",
   "editor.fontSize": 16,
   "editor.fontVariations": true,
   "editor.fontWeight": 400,
@@ -31,6 +31,8 @@
     "jsx": "jsx",
     "tsx": "tsx"
   },
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "*.css": "tailwindcss"
