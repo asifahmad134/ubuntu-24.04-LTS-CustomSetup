@@ -1,0 +1,8 @@
+abi <abi/4.0>,
+include <tunables/global>
+
+profile cromite /opt/chrome-lin/chrome flags=(unconfined) {
+  userns,
+
+  include if exists <local/chrome>
+}

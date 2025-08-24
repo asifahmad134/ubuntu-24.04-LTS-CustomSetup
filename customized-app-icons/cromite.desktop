@@ -1,0 +1,23 @@
+[Desktop Entry]
+Version=1.0
+Name=Cromite
+GenericName=Web Browser
+Comment=Access the Internet
+Exec=/opt/chrome-lin/chrome %U
+StartupNotify=true
+Terminal=false
+Icon=cromite
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+Actions=new-window;new-private-window;
+StartupWMClass=Chromium-browser
+
+[Desktop Action new-window]
+Name=New Window
+Exec=/opt/chrome-lin/chrome
+
+[Desktop Action new-private-window]
+Name=New Incognito Window
+Exec=/opt/chrome-lin/chrome --incognito
+
