@@ -71,7 +71,7 @@ sudo apt --fix-broken install
 ## ✴️✴️✴️ necessary packages (125+ MB required)
 
 ```
-sudo apt install amberol curl git gnome-shell-extension-manager gnome-tweaks loupe  showtime transmission tree foliate systemd-zram-generator 
+sudo apt install amberol curl git gnome-shell-extension-manager gnome-tweaks loupe  showtime transmission tree foliate systemd-zram-generator
 ```
 
 ## ✳️✳️✳️ suggestions / optional packages
@@ -79,7 +79,7 @@ sudo apt install amberol curl git gnome-shell-extension-manager gnome-tweaks lou
 ```
 sudo apt install nautilus-admin gedit gedit-plugins
 sudo apt install thunar thunar-media-tags-plugin
-sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot gh lsd gnome-calendar 
+sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot gh lsd gnome-calendar
 ```
 
 ## 🌐🌐🌐 Install Google Chrome
@@ -252,7 +252,7 @@ sudo apt install systemd-zram-generator
 sudo nano /etc/systemd/zram-generator.conf
 
 [zram0]
-zram-size = ram / 2 
+zram-size = ram / 2
 compression-algorithm = zstd
 ```
 
