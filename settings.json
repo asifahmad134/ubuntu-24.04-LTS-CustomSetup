@@ -11,8 +11,8 @@
   "editor.cursorWidth": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "Maple Mono NF, UbuntuSansMono NF",
-  "editor.fontLigatures": "'calt', 'zero', 'cv03', 'ss03','ss09', 'ss10', 'ss11'",
-  "editor.fontSize": 16,
+  "editor.fontLigatures": "'calt', 'zero', 'cv03', 'ss01','ss03','ss09', 'ss10', 'ss11'",
+  "editor.fontSize": 14,
   "editor.fontVariations": true,
   "editor.fontWeight": 400,
   "editor.formatOnPaste": true,
@@ -22,9 +22,9 @@
   "editor.minimap.enabled": false,
   "editor.mouseWheelZoom": true,
   "editor.quickSuggestions": {
-    "comments": true,
-    "other": true,
-    "strings": true
+    "comments": false,
+    "other": false,
+    "strings": false
   },
   "emmet.includeLanguages": {
     "astro": "html",
@@ -46,12 +46,11 @@
   "markdown.extension.preview.autoShowPreviewToSide": true,
   "tailwind-fold.autoFold": false,
   "tailwind-fold.unfoldIfLineSelected": true,
-  "tailwind-fold.unfoldedTextOpacity": 0.75,
+  "tailwind-fold.unfoldedTextOpacity": 0.66,
   "tailwindCSS.emmetCompletions": true,
   "terminal.integrated.smoothScrolling": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "none",
-  "vsicons.dontShowNewVersionMessage": true,
   "window.density.editorTabHeight": "compact",
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "One Dark Pro Darker",

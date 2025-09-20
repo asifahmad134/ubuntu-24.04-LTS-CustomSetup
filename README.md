@@ -71,7 +71,7 @@ sudo apt --fix-broken install
 ## ✴️✴️✴️ necessary packages (125+ MB required)
 
 ```
-sudo apt install amberol curl git gnome-shell-extension-manager gnome-tweaks loupe  showtime transmission tree foliate systemd-zram-generator
+sudo apt install amberol curl git gnome-shell-extension-manager gnome-tweaks loupe showtime transmission tree foliate systemd-zram-generator
 ```
 
 ## ✳️✳️✳️ suggestions / optional packages
@@ -143,6 +143,8 @@ sudo apt install  yt-dlp parabolic calibre ungoogled-chromium chromium  gnucash 
 sudo rm /opt/google/chrome/locales/!("en-GB.pak"|"en-US.pak")
 - brave browser
 sudo rm /opt/brave.com/brave/locales/!("en-GB.pak"|"en-US.pak")
+- vivaldi
+sudo rm /opt/vivaldi/locales/!("en-GB.pak"|"en-US.pak") && sudo rm -fdr /opt/vivaldi/resources/vivaldi/default-bookmarks && sudo rm -fdr /opt/vivaldi/resources/vivaldi/_locales
 - slack
 sudo rm /usr/lib/slack/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /usr/lib/slack/LICENSE /usr/lib/slack/resources/LICENSES.chromium.html
 - TickTick
@@ -150,7 +152,7 @@ sudo rm /opt/TickTick/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /opt/TickTic
 - replit
 sudo rm /usr/lib/replit/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /usr/lib/replit/LICENSES.chromium.html
 - vscode
-sudo rm /usr/share/code/LICENSES.chromium.html /usr/share/code/resources/app/LICENSE.rtf && sudo rm /usr/share/code/locales/!("en-GB.pak"|"en-US.pak") && sudo rm -fdr /usr/share/code/resources/app/licenses
+sudo rm /usr/share/code//resources/app/ThirdPartyNotices.txt /usr/share/code/LICENSES.chromium.html /usr/share/code/resources/app/LICENSE.rtf && sudo rm /usr/share/code/locales/!("en-GB.pak"|"en-US.pak") && sudo rm -fdr /usr/share/code/resources/app/licenses
 ```
 
 # 📦📦📦 git && ssh setup
@@ -194,7 +196,7 @@ cat ~/.ssh/id_ed25519.pub
 #### WARNING: UNPROTECTED PRIVATE KEY FILE!/ NOT accessible by others
 
 ```
-chmod 600 /home/asif/.ssh/id_ed25519
+chmod 600 .ssh/id_ed25519
 ```
 
 ✅ 5. Add SSH Key to GitHub (generated in steps 2 & 4)
@@ -252,7 +254,7 @@ sudo apt install systemd-zram-generator
 sudo nano /etc/systemd/zram-generator.conf
 
 [zram0]
-zram-size = ram / 2
+zram-size = ram / 4
 compression-algorithm = zstd
 ```
 
