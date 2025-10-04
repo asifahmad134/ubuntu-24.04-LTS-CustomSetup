@@ -6,7 +6,7 @@ Terminal=false
 Type=Application
 StartupNotify=true
 MimeType=text/plain;application/x-zerosize;
-Icon=/usr/share/icons/npp.png
+Icon=npp.png
 Categories=GNOME;GTK;Utility;TextEditor;
 Actions=new-window;new-document;
 # Translators: Do NOT translate or localize the semicolons. The list MUST also

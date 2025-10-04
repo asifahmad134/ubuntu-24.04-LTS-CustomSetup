@@ -1,9 +1,31 @@
-# 🆕🆒🆓 Clean Ubuntu (24.04+)
+# 🆕🆒🆓 Clean & minimal Ubuntu (24.04 LTS)
 
-# _Make Ubuntu great again!!!!!_
+When installing Ubuntu, choose **DEFAULT SELECTION** === (Just the essentials, web browser and basic utilities).All of the below removal and installation is to make ubuntu more better and suitable for development.
 
-When installing Ubuntu, choose **_DEFAULT SELECTION_** === _(Just the essentials, web browser and basic utilities)_.
-All of the below removal and installation is to make ubuntu more better and suitable for development.
+# ⭐⭐⭐ First of all, update & upgrade
+
+```
+sudo apt update
+sudo apt install nala
+sudo nala full-upgrade
+
+sudo apt update -y && sudo apt upgrade -y
+apt search <keyword>
+sudo apt --fix-broken install
+sudo apt autoremove --purge
+sudo apt autopurge
+```
+
+```
+/etc/nala/nala.conf
+# Set to true to make full-upgrade the default
+full_upgrade = false -> true
+# Set to true Nala will list the upgradable packages automatically after `update`
+update_show_packages = false -> true
+# Set to true for `MiB` false for `MB`
+filesize_binary = false -> true
+
+```
 
 # 🔥🔥🔥 PURGE without loosing ubuntu-desktop
 
@@ -16,73 +38,60 @@ All of the below removal and installation is to make ubuntu more better and suit
 
 ```
 sudo snap list
-sudo snap remove --purge <snap name>
-sudo apt autopurge snapd
+// sudo snap remove --purge <snap name>
+sudo snap remove --purge firefox firmware-updater
+sudo snap remove --purge gnome-42-2204 gtk-common-themes
+sudo snap remove --purge snap-store snapd-desktop-integration bare
+sudo snap remove --purge core22
+sudo snap remove --purge snapd
 sudo rm -Rf /var/cache/snapd/
 rm -Rf ~/snap
 sudo apt autoremove --purge
 ```
 
-### purge these, combined (444+ MB freed)
+### purge these, combined (390+47 MB freed)
 
 ```
 sudo apt purge ubuntu-report apport apport-gtk brltty orca gnome-accessibility-themes fonts-noto-cjk speech-dispatcher* libpinyin* ibus* pocketsphinx* espeak* liblouis* hplip* eog
+sudo apt autoremove --purge
 ```
 
-### Remove bunch of CUPS stuff, also printing & printer drivers (21+ MB freed)
+### Remove bunch of CUPS stuff, printing & printer drivers (18+5 MB freed)
 
 ```
 sudo apt purge 'cups*' 'foomatic*' printer-driver-brlaser* printer-driver-foo2zjs-common* printer-driver-ptouch* printer-driver-c2esp* printer-driver-min12xxw* printer-driver-sag-gdi*
-```
-
-### CLEAN remaining packages, (45+ MB freed)
-
-```
 sudo apt autoremove --purge
-//or
-sudo apt autopurge
 ```
 
-### Remove all backgrounds (152+ MB freed), except for 25.04 default background.
+### Remove all backgrounds (50+ MB), only if you need to...
 
 ```
-sudo rm -fdr /usr/share/backgrounds/!("warty-final-ubuntu.png")
+sudo rm -fdr /usr/share/backgrounds/*
 ```
 
-### for removing old kernels, first identify installed and then proceed
+### for removing old kernels, first identify installed, then proceed
 
 ```
 dpkg --list | grep -i linux-image
 sudo apt purge linux-image-[version]-generic
 dpkg --list | grep -i linux-headers
-sudo apt purge linux-headers-[version]*
+sudo apt purge linux-headers-[version]-generic
 sudo apt autopurge
 sudo update-grub
 ```
 
-# ⭐⭐⭐ INSTALLATIONS
+## ✴️✴️✴️ suggestions / optional packages
 
 ```
-sudo apt update -y && sudo apt upgrade -y
-apt search <keyword>
-sudo apt --fix-broken install
+sudo nala install curl git gnome-shell-extension-manager gnome-tweaks loupe transmission tree foliate systemd-zram-generator lsd
+sudo nala install nautilus-admin gedit gedit-plugins
+sudo nala install thunar thunar-media-tags-plugin
+sudo nala install totem amberol gstreamer1.0-libav
+// optional
+sudo nala install  ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot gh gnome-calendar
 ```
 
-## ✴️✴️✴️ necessary packages (125+ MB required)
-
-```
-sudo apt install amberol curl git gnome-shell-extension-manager gnome-tweaks loupe showtime transmission tree foliate systemd-zram-generator
-```
-
-## ✳️✳️✳️ suggestions / optional packages
-
-```
-sudo apt install nautilus-admin gedit gedit-plugins
-sudo apt install thunar thunar-media-tags-plugin
-sudo apt install ptyxis vlc file-roller rar unrar synaptic gnome-decoder adb fastboot gh lsd gnome-calendar
-```
-
-## 🌐🌐🌐 Install Google Chrome
+## 🌐🌐🌐 Install latest Google Chrome
 
 ```
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -124,7 +133,7 @@ exec bash
 - **_Microsoft.PowerShell_profile.ps1_**<br>
   This is for windows 10/11 terminal/powershell profile in user's My Documents folder
 
-# 🛸👽🚚 XTRADEB packages
+## 🛸👽🚚 XTRADEB packages
 
 Unofficial Ubuntu application packages maintained by xtradeb.
 
@@ -132,8 +141,8 @@ Unofficial Ubuntu application packages maintained by xtradeb.
 
 ```
 sudo add-apt-repository ppa:xtradeb/apps -y
-sudo apt update
-sudo apt install  yt-dlp parabolic calibre ungoogled-chromium chromium  gnucash  intellij-idea-community  pycharm-community
+sudo nala update
+sudo nala install  yt-dlp parabolic calibre ungoogled-chromium chromium  gnucash  intellij-idea-community  pycharm-community
 ```
 
 # ⚛️⚛️⚛️ Remove language locales for chrome & electron based apps (50+ MB each)
@@ -143,8 +152,8 @@ sudo apt install  yt-dlp parabolic calibre ungoogled-chromium chromium  gnucash 
 sudo rm /opt/google/chrome/locales/!("en-GB.pak"|"en-US.pak")
 - brave browser
 sudo rm /opt/brave.com/brave/locales/!("en-GB.pak"|"en-US.pak")
-- vivaldi
-sudo rm /opt/vivaldi/locales/!("en-GB.pak"|"en-US.pak") && sudo rm -fdr /opt/vivaldi/resources/vivaldi/default-bookmarks && sudo rm -fdr /opt/vivaldi/resources/vivaldi/_locales
+- cursor
+sudo rm /usr/share/cursor/resources/app/ThirdPartyNotices.txt /usr/share/cursor/LICENSES.chromium.html /usr/share/cursor/resources/app/LICENSE.txt && sudo rm /usr/share/cursor/locales/!("en-GB.pak"|"en-US.pak")
 - slack
 sudo rm /usr/lib/slack/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /usr/lib/slack/LICENSE /usr/lib/slack/resources/LICENSES.chromium.html
 - TickTick
@@ -152,10 +161,10 @@ sudo rm /opt/TickTick/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /opt/TickTic
 - replit
 sudo rm /usr/lib/replit/locales/!("en-GB.pak"|"en-US.pak") && sudo rm /usr/lib/replit/LICENSES.chromium.html
 - vscode
-sudo rm /usr/share/code//resources/app/ThirdPartyNotices.txt /usr/share/code/LICENSES.chromium.html /usr/share/code/resources/app/LICENSE.rtf && sudo rm /usr/share/code/locales/!("en-GB.pak"|"en-US.pak") && sudo rm -fdr /usr/share/code/resources/app/licenses
+sudo rm /usr/share/code/resources/app/ThirdPartyNotices.txt /usr/share/code/LICENSES.chromium.html /usr/share/code/resources/app/LICENSE.rtf && sudo rm /usr/share/code/locales/!("en-GB.pak"|"en-US.pak") && sudo rm -fdr /usr/share/code/resources/app/licenses
 ```
 
-# 📦📦📦 git && ssh setup
+## 📦📦📦 git && ssh setup
 
 ## git conf
 
@@ -163,52 +172,40 @@ sudo rm /usr/share/code//resources/app/ThirdPartyNotices.txt /usr/share/code/LIC
 git config --global user.name "---"
 git config --global user.email "---"
 git config --global color.ui auto
-git config --global --add safe.directory /mnt/d/make-ubuntu-great-again
 ```
 
 ## ssh SETUP
 
 ✅ 1. Check for Existing SSH Keys (if Yes, do steps 3 & 6)
-
 ```
 ls -al ~/.ssh
 ```
-
 ✅ 2. Generate a New SSH Key (only if above don't exist)
-
 ```
 ssh-keygen -t ed25519 -C "--email--"
 ```
-
 ✅ 3. Add SSH Key to SSH Agent
-
 ```
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
-
 ✅ 4. Copy the Public Key (only if new is generated)
-
 ```
 cat ~/.ssh/id_ed25519.pub
 ```
-
 #### WARNING: UNPROTECTED PRIVATE KEY FILE!/ NOT accessible by others
-
 ```
 chmod 600 .ssh/id_ed25519
 ```
-
 ✅ 5. Add SSH Key to GitHub (generated in steps 2 & 4)
 ✅ 6. Test the GitHub Connection
-
 ```
 rm ~/.ssh/known_hosts
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 ssh -T git@github.com
 ```
 
-# 🪛📜💻 Important Scripts
+## 🪛📜💻 Important Scripts
 
 #### Best all in one tool
 
@@ -235,8 +232,7 @@ ssh -T git@github.com
 
 > **_update-all-icon-caches.sh_** This updates icons caches
 
-# ✅✅✅ Use systemd-zram-generator — Best for Ubuntu 24.04+ and newer
-
+## ✅✅✅ Use systemd-zram-generator
 This is the modern, upstream-supported way to enable ZRAM. It’s fast, efficient, flexible, and maintained directly by systemd developers. Since Ubuntu 25.04 inherits these improvements, this method is more future-proof than older zram-tools.
 
 ##🔧 Steps for Optimal ZRAM Setup with 8GB RAM
