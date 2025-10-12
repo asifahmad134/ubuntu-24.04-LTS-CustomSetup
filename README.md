@@ -38,6 +38,7 @@ filesize_binary = true
 ## 🔥🔥🔥 Purge Unnecessary Packages Without Losing ubuntu-desktop
 
 **Steps:**
+
 1. Remove snaps (commands or scripts)
 2. Purge unwanted apps
 3. Install apps of your choice
@@ -169,24 +170,11 @@ sudo chmod 777 .oh-my-posh/
 
 ### Configure Bash
 
-Add this line at the end of `~/.bashrc`:
-
-```bash
-eval "$(oh-my-posh init bash --config ~/.oh-my-posh/jandedobbeleer.omp.json)"
-```
-
-Refresh bash after selecting theme:
+You can use the enclosed .bashrc for the selection of themes, just uncomment the required theme. Refresh bash after selecting theme:
 
 ```bash
 exec bash
 ```
-
-### Description of Files in oh-my-posh Folder
-
-- All themes are changed/modded versions
-- **25-04.bashrc** - Default .bashrc in Ubuntu 25.04
-- **omp.bashrc** - Default .bashrc with omp themes commented at the end
-- **Microsoft.PowerShell_profile.ps1** - For Windows 10/11 terminal/PowerShell profile in user's Documents folder
 
 ---
 
@@ -321,23 +309,23 @@ ssh -T git@github.com
 
 ### All-in-One Tool
 
-**[ubuntu-debullshit.sh](https://github.com/polkaulfield/ubuntu-debullshit)**  
+**[ubuntu-debullshit.sh](https://github.com/polkaulfield/ubuntu-debullshit)**
 Purges snaps, installs flatpaks, and restores vanilla GNOME.
 
 ### Snap Uninstallers / Removers
 
-**[snap-remover.sh](https://gist.github.com/lassekongo83/808b19e034c05d10ac4e3cc259808e4e)**  
+**[snap-remover.sh](https://gist.github.com/lassekongo83/808b19e034c05d10ac4e3cc259808e4e)**
 Completely remove snaps from Ubuntu.
 
-**[unsnap](https://github.com/popey/unsnap)**  
+**[unsnap](https://github.com/popey/unsnap)**
 Quickly migrate from snap packages to flatpaks.
 
 ### Cleaners
 
-**[snap-cleaner.sh](https://github.com/sakibulalikhan/snap-cleaner)**  
+**[snap-cleaner.sh](https://github.com/sakibulalikhan/snap-cleaner)**
 Free up disk space by deleting unnecessary Snap package revisions and caches.
 
-**[ubuntu_cleanup.sh](https://gist.github.com/Limbicnation/6763b69ab6a406790f3b7d4b56a2f6e8)**  
+**[ubuntu_cleanup.sh](https://gist.github.com/Limbicnation/6763b69ab6a406790f3b7d4b56a2f6e8)**
 A comprehensive system cleanup script that safely removes unnecessary files to free up disk space.
 
 ### Miscellaneous
@@ -363,12 +351,12 @@ When your system runs low on free RAM:
 
 ### 📈 Benefits
 
-| Advantage           | Description                               |
-|---------------------|-------------------------------------------|
-| 🚀 Faster swapping  | No disk I/O – data stays in RAM           |
-| 💾 Reduced SSD wear | Less frequent writing to swap partitions  |
-| ⚡ Better multitasking | Keeps your system responsive under load |
-| 🔋 Energy efficient | Reduces disk activity on laptops          |
+| Advantage              | Description                              |
+| ---------------------- | ---------------------------------------- |
+| 🚀 Faster swapping     | No disk I/O – data stays in RAM          |
+| 💾 Reduced SSD wear    | Less frequent writing to swap partitions |
+| ⚡ Better multitasking | Keeps your system responsive under load  |
+| 🔋 Energy efficient    | Reduces disk activity on laptops         |
 
 ### ⚖️ Trade-offs
 
@@ -378,13 +366,14 @@ When your system runs low on free RAM:
 
 ### 🧮 Recommended zram Sizes
 
-| System RAM | Recommended zram Size | Notes                                                     |
-|------------|----------------------|-----------------------------------------------------------|
-| **8 GB**   | 2× RAM (≈16 GB)      | Greatly improves responsiveness and multitasking          |
-| **16 GB**  | 1× RAM (≈16 GB)      | Balanced setup for most users                             |
-| **32 GB**  | 0.5× RAM (≈16 GB)    | Enough for compression efficiency; disk swap rarely used  |
+| System RAM | Recommended zram Size | Notes                                                    |
+| ---------- | --------------------- | -------------------------------------------------------- |
+| **8 GB**   | 2× RAM (≈16 GB)       | Greatly improves responsiveness and multitasking         |
+| **16 GB**  | 1× RAM (≈16 GB)       | Balanced setup for most users                            |
+| **32 GB**  | 0.5× RAM (≈16 GB)     | Enough for compression efficiency; disk swap rarely used |
 
 **Summary:**
+
 - ≤ 8 GB RAM → heavier zram helps a lot
 - ≥ 16 GB RAM → moderate settings
 - ≥ 32 GB RAM → small zram, mostly for efficiency
