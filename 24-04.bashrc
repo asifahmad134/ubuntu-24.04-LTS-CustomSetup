@@ -115,8 +115,19 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# mise
+eval "$(/usr/bin/mise activate bash)"
 
-
+#------- Customized themes
+#eval "$(oh-my-posh init bash --config ~/.OMP/atomic.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/atomicBit.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/chips.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/cloud-native-azure.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/huvix.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/iterm2.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/negligible.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/ys.omp.json)"
+#------- Default themes
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/1_shell.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/agnoster.minimal.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/agnoster.omp.json)"
@@ -140,7 +151,7 @@ fi
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/cert.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/chips.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/cinnamon.omp.json)"
-#eval "$(oh-my-posh init bash --config ~/.oh-my-posh/clean-detailed.omp.json)"
+eval "$(oh-my-posh init bash --config ~/.oh-my-posh/clean-detailed.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/cloud-context.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/cloud-native-azure.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/cobalt2.omp.json)"
@@ -240,4 +251,4 @@ fi
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/wopian.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/xtoys.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/ys.omp.json)"
-eval "$(oh-my-posh init bash --config ~/.oh-my-posh/zash.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.oh-my-posh/zash.omp.json)"

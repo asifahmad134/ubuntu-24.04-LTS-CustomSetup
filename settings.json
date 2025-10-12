@@ -58,5 +58,10 @@
   "workbench.editor.scrollToSwitchTabs": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.smoothScrolling": true,
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "amp.url": "https://ampcode.com/",
+  "amp.tab.enabled": true,
+  "editor.wordBasedSuggestions": "off",
+  "chat.disableAIFeatures": true,
+  "security.workspace.trust.untrustedFiles": "open"
 }
