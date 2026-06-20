@@ -1,9 +1,15 @@
 {
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+    "editor.formatOnSave": true
+  },
+  "chat.fontSize": 12,
+  "debug.console.fontSize": 12,
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingTags": "always",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
+    "source.organizeImports": "explicit"
   },
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -11,7 +17,6 @@
   "editor.foldingStrategy": "auto",
   "editor.fontFamily": "Maple Mono NF",
   "editor.fontLigatures": "'calt', 'zero', 'cv03', 'ss01','ss03','ss09', 'ss10', 'ss11'",
-  "editor.fontSize": 16,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
@@ -26,7 +31,7 @@
   "editor.quickSuggestions": {
     "other": true,
     "comments": false,
-    "strings": true,
+    "strings": true
   },
   "editor.semanticHighlighting.enabled": true,
   "editor.stickyScroll.enabled": true,
@@ -35,12 +40,12 @@
   "emmet.includeLanguages": [
     {
       "jsx": "jsx",
-      "tsx": "tsx",
+      "tsx": "tsx"
     },
     {
       "javascript": "javascriptreact",
-      "typescript": "typescriptreact",
-    },
+      "typescript": "typescriptreact"
+    }
   ],
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
@@ -53,25 +58,49 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "prettier.experimentalTernaries": true,
+  "rubyLsp.enabledFeatures": {
+    "codeActions": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": true,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true,
+    "completion": true,
+    "codeLens": true,
+    "definition": true,
+    "workspaceSymbol": true,
+    "signatureHelp": true,
+    "typeHierarchy": true
+  },
+  "scm.inputFontSize": 12,
   "tailwindCSS.classAttributes": [
     "class",
     "className",
     "ngClass",
-    "class:list",
+    "class:list"
   ],
   "tailwindCSS.emmetCompletions": true,
-  "tailwindCSS.experimental.classRegex": [
-    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^'\"`]*)"],
-    ["classnames\\(([^)]*)\\)", "(?:'|\"|`)([^'\"`]*)"],
-  ],
   "telemetry.telemetryLevel": "off",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontWeight": "bold",
+  "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.smoothScrolling": true,
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.zoomLevel": 1,
   "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "Spinel",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.scrollToSwitchTabs": true,
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredLightColorTheme": "VS Code Dark",
+  "workbench.preferredLightColorTheme": "Dark 2026"
 }

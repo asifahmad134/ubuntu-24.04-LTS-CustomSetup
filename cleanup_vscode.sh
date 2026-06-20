@@ -26,7 +26,6 @@ bytes_to_mib() {
 total_saved_bytes=0
 
 echo -e "${YELLOW}Starting VS Code cleanup...${NC}"
-echo "----------------------------------------"
 
 # 1. Remove ThirdPartyNotices.txt, LICENSES.chromium.html, LICENSE.rtf
 files_to_remove_1=(
@@ -89,6 +88,5 @@ fi
 # Display total saved
 total_saved_mib=$(bytes_to_mib "$total_saved_bytes")
 
-echo "----------------------------------------"
 echo -e "${GREEN}Cleanup complete! Total space saved: ${total_saved_mib} MiB${NC}"
 

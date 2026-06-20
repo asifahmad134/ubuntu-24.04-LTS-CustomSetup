@@ -159,15 +159,7 @@ sudo nala install -y nodejs
 ## 📦 Global NPM Packages
 
 ```bash
-sudo npm install -g \
-  npm@latest \
-  corepack@latest \
-  npm-check-updates \
-  typescript \
-  pnpm@latest \
-  yarn \
-  vite \
-  bun
+sudo npm install -g npm@latest corepack@latest npm-check-updates typescript pnpm@latest yarn vite bun
 
 # Check for outdated global packages
 sudo npm outdated -g --depth=0
@@ -289,14 +281,17 @@ exec bash
 ## 💾 Export / Load GNOME Settings
 
 ```bash
+# Reset GNOME folders
+gsettings reset org.gnome.desktop.app-folders folder-children
+
 # Reset ALL user-configured GNOME settings (destructive — use carefully)
 dconf reset -f /
 
 # Export full GNOME settings
-dconf dump / > full-gnome-backup-2026-05-10.conf
+dconf dump / > full-gnome-backup.conf
 
 # Load full GNOME settings
-dconf load / < full-gnome-backup-2026-05-10.conf
+dconf load / < full-gnome-backup.conf
 
 # Export GNOME extension settings only
 dconf dump /org/gnome/shell/extensions/ > aa-gnome-exts-settings.conf
@@ -326,7 +321,7 @@ sudo nala install yt-dlp parabolic calibre ungoogled-chromium chromium
 ### Essential Tools
 
 ```bash
-sudo nala install curl git gnome-calendar gnome-shell-extension-manager gnome-tweaks nautilus-admin gedit gedit-plugins transmission synaptic thunar
+sudo nala install curl duf git gnome-calendar gnome-shell-extension-manager gnome-tweaks nautilus-admin gedit gedit-plugins transmission synaptic thunar
 ```
 
 ### Multimedia Plugins
