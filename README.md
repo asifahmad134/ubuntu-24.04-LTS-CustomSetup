@@ -1,29 +1,8 @@
 # 🆕 Clean & Minimal Ubuntu — Post-Install Setup Guide
 
 > Covers **Ubuntu 24.04 LTS** and **Ubuntu 26.04 LTS**. Differences between versions are clearly marked.
+
 > When installing Ubuntu, choose **Default Selection** (just the essentials — web browser and basic utilities).
-
----
-
-## Table of Contents
-
-- [System Info & Useful Commands](#-system-info--useful-commands)
-- [Update & Upgrade](#-update--upgrade)
-- [Purge Unnecessary Packages](#-purge-unnecessary-packages)
-- [Remove Printing Support](#-remove-printing-support)
-- [Remove Old Kernels](#-remove-old-kernels)
-- [Install Google Chrome](#-install-google-chrome)
-- [Install Node.js](#-install-nodejs)
-- [Global NPM Packages](#-global-npm-packages)
-- [Git & SSH Setup](#-git--ssh-setup)
-- [oh-my-posh Setup](#-oh-my-posh-setup)
-- [Export / Load GNOME Settings](#-export--load-gnome-settings)
-- [XTRADEB Packages](#-xtradeb-packages)
-- [Suggested & Optional Packages](#-suggested--optional-packages)
-- [Remove Language Locales](#-remove-language-locales)
-- [Useful Scripts](#-useful-scripts)
-
----
 
 ## 💻 System Info & Useful Commands
 
@@ -55,15 +34,15 @@ sudo apt autopurge
 ```
 
 ### Install nala (better apt frontend)
+
 ```bash
 sudo apt install nala
 sudo nano /etc/nala/nala.conf
-```
-Edit nala config for binary file sizes:
-```ini
+# Edit nala config for binary file sizes:
 # Set to true for MiB, false for MB
 filesize_binary = true
 ```
+
 ---
 
 ## 🔥 Purge Unnecessary Packages
@@ -94,6 +73,7 @@ sudo apt purge speech-dispatcher* libpinyin* ibus* pocketsphinx* espeak* libloui
 # Cleanup unused dependencies (~37 MB)
 sudo apt autoremove --purge
 ```
+
 ---
 
 ## 🖨️ Remove Printing Support (~18–24 MB freed)
@@ -141,7 +121,6 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 ---
 
 ## 🎴 Install Node.js
-
 
 ```bash
 # Node.js 22.x LTS (stable)
@@ -253,26 +232,7 @@ sudo bash -c "$(curl -s https://ohmyposh.dev/install.sh)" -- -d /usr/bin
 sudo mv /root/.cache/oh-my-posh/themes/ ~/.oh-my-posh
 sudo chown -R $USER:$USER ~/.oh-my-posh
 
-# Refresh bash
-exec bash
-```
-
-### Notable Files
-
-| File / Folder | Description |
-|---|---|
-| `[omp]` | Customized oh-my-posh themes |
-| `[WindowsPowerShell]` | Config for Windows (Documents folder) |
-| `terminal-themes-good.txt` | these themes are much better than rest |
-| `24-04.bashrc` | Customized `.bashrc` with themes (uncomment to activate) |
-| `26-04.bashrc` | Customized `.bashrc` with themes (uncomment to activate) |
-
-
-### Configure Bash
-
-Use the enclosed `.bashrc` — uncomment your preferred theme at the bottom, then refresh:
-
-```bash
+# Use the enclosed `.bashrc` — uncomment your preferred theme at the bottom, then refresh:
 exec bash
 ```
 
@@ -321,13 +281,13 @@ sudo nala install yt-dlp parabolic calibre ungoogled-chromium chromium
 ### Essential Tools
 
 ```bash
-sudo nala install curl duf git gnome-calendar gnome-shell-extension-manager gnome-tweaks nautilus-admin gedit gedit-plugins transmission synaptic thunar
+sudo nala install curl duf git gnome-calendar gnome-shell-extension-manager gnome-tweaks nautilus-admin gedit gedit-plugins synaptic thunar
 ```
 
 ### Multimedia Plugins
 
 ```bash
-sudo nala install gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
+sudo nala install gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libheif-plugin-libde265
 ```
 
 ### Multimedia **Ubuntu 24.04**
@@ -339,7 +299,7 @@ sudo nala install amberol totem vlc loupe
 ### Multimedia **Ubuntu 26.04**
 
 ```bash
-sudo nala install gapless showtime clapper vlc gnome-video-trimmer libheif-plugin-libde265
+sudo nala install gapless showtime clapper vlc gnome-video-trimmer
 ```
 
 ### Optional Programs combined
@@ -360,125 +320,18 @@ sudo nala install errands wike wordbook
 sudo nala install build-essential libssl-dev libreadline-dev pkg-config
 ```
 
----
-
-## ⚛️ Remove Language Locales (~50+ MB saved per app)
-
-Removes unused locale files from Chromium-based apps. Only English variants are kept.
-
-### Google Chrome
+### qBittorrent
 
 ```bash
-sudo rm /opt/google/chrome/locales/!("en-GB.pak"|"en-US.pak")
+sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+sudo apt-get update && sudo apt-get install qbittorrent
 ```
-
-### VS Code
-
-```bash
-sudo rm /usr/share/code/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /usr/share/code/resources/app/ThirdPartyNotices.txt \
-        /usr/share/code/LICENSES.chromium.html \
-        /usr/share/code/resources/app/LICENSE.rtf
-sudo rm -fdr /usr/share/code/resources/app/licenses
-```
-
-### Cursor
-
-```bash
-sudo rm /usr/share/cursor/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /usr/share/cursor/resources/app/ThirdPartyNotices.txt \
-        /usr/share/cursor/LICENSES.chromium.html \
-        /usr/share/cursor/resources/app/LICENSE.txt
-```
-
-### LM Studio
-
-```bash
-sudo rm /opt/LM-Studio/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /opt/LM-Studio/LICENSE.electron.txt /opt/LM-Studio/LICENSES.chromium.html
-```
-
-### Slack
-
-```bash
-sudo rm /usr/lib/slack/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /usr/lib/slack/LICENSE \
-        /usr/lib/slack/resources/LICENSES.chromium.html \
-        /usr/lib/slack/LICENSES-linux.json
-```
-
-### Brave Browser
-
-```bash
-sudo rm /opt/brave.com/brave/locales/!("en-GB.pak"|"en-US.pak")
-```
-
-### Obsidian
-
-```bash
-sudo rm /opt/Obsidian/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /opt/Obsidian/LICENSES.chromium.html /opt/Obsidian/LICENSE.electron.txt
-```
-
-### GitKraken
-
-```bash
-sudo rm /usr/share/gitkraken/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /usr/share/gitkraken/LICENSES.chromium.html /usr/share/gitkraken/LICENSE.electron
-```
-
-### Joplin
-
-```bash
-sudo rm /opt/Joplin/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /opt/Joplin/LICENSES.chromium.html /opt/Joplin/LICENSE.electron.txt
-```
-
-### FreeTube
-
-```bash
-sudo rm /opt/FreeTube/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /opt/FreeTube/LICENSES.chromium.html /opt/FreeTube/LICENSE.electron.txt
-```
-
-### Super Productivity
-
-```bash
-sudo rm /opt/Super\ Productivity/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /opt/Super\ Productivity/LICENSES.chromium.html \
-        /opt/Super\ Productivity/LICENSE.electron.txt
-```
-
-### ONLYOFFICE
-
-```bash
-sudo rm /opt/onlyoffice/desktopeditors/locales/!("en-US.pak")
-sudo rm -rf /opt/onlyoffice/desktopeditors/converter/empty/!("en-US"|"default")
-sudo rm -rf /opt/onlyoffice/desktopeditors/converter/templates/!("EN")
-sudo rm -rf /opt/onlyoffice/desktopeditors/dictionaries/!("en_US")
-```
-
-### TickTick
-
-```bash
-sudo rm /opt/TickTick/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /opt/TickTick/LICENSE.electron.txt /opt/TickTick/LICENSES.chromium.html
-```
-
-### Replit
-
-```bash
-sudo rm /usr/lib/replit/locales/!("en-GB.pak"|"en-US.pak")
-sudo rm /usr/lib/replit/LICENSES.chromium.html
-```
-
----
 
 ## 🪛 Useful Scripts
 
-| Script | Description |
-|---|---|
-| [ubuntu-debullshit.sh](https://github.com/polkaulfield/ubuntu-debullshit) | Purges snaps, installs flatpaks, restores vanilla GNOME |
-| [snap-remover.sh](https://gist.github.com/lassekongo83/808b19e034c05d10ac4e3cc259808e4e) | Completely removes snaps from Ubuntu |
-| [snap-cleaner.sh](https://github.com/sakibulalikhan/snap-cleaner) | Deletes unnecessary Snap revisions and caches |
-| [ubuntu_cleanup.sh](https://gist.github.com/Limbicnation/6763b69ab6a406790f3b7d4b56a2f6e8) | Comprehensive cleanup script to free up disk space |
+| Script                                                                                     | Description                                             |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| [ubuntu-debullshit.sh](https://github.com/polkaulfield/ubuntu-debullshit)                  | Purges snaps, installs flatpaks, restores vanilla GNOME |
+| [snap-remover.sh](https://gist.github.com/lassekongo83/808b19e034c05d10ac4e3cc259808e4e)   | Completely removes snaps from Ubuntu                    |
+| [snap-cleaner.sh](https://github.com/sakibulalikhan/snap-cleaner)                          | Deletes unnecessary Snap revisions and caches           |
+| [ubuntu_cleanup.sh](https://gist.github.com/Limbicnation/6763b69ab6a406790f3b7d4b56a2f6e8) | Comprehensive cleanup script to free up disk space      |

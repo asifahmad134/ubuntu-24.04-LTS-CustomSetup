@@ -125,7 +125,7 @@ fi
 #eval "$(oh-my-posh init bash --config ~/.omp/huvix.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.omp/negligible.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.omp/nordtron.omp.json)"
-#eval "$(oh-my-posh init bash --config ~/.omp/ys.omp.json)"
+#eval "$(oh-my-posh init bash --config ~/.OMP/ys.omp.json)""
 #------- oh-my-posh themes from website
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/1_shell.omp.json)"
 #eval "$(oh-my-posh init bash --config ~/.oh-my-posh/M365Princess.omp.json)"
