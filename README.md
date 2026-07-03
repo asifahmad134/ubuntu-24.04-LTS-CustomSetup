@@ -17,8 +17,6 @@ hostnamectl
 du -h -s * | sort -h -r
 ```
 
----
-
 ## ⭐ Update, Upgrade, Fixes & **nala**
 
 ```bash
@@ -42,8 +40,6 @@ sudo nano /etc/nala/nala.conf
 # Set to true for MiB, false for MB
 filesize_binary = true
 ```
-
----
 
 ## 🔥 Purge Unnecessary Packages
 
@@ -74,8 +70,6 @@ sudo apt purge speech-dispatcher* libpinyin* ibus* pocketsphinx* espeak* libloui
 sudo apt autoremove --purge
 ```
 
----
-
 ## 🖨️ Remove Printing Support (~18–24 MB freed)
 
 ```bash
@@ -90,8 +84,6 @@ sudo apt purge 'cups*' 'foomatic*' \
 sudo apt autoremove --purge
 ```
 
----
-
 ## 🧹 Remove Old Kernels
 
 First, identify what's installed:
@@ -103,13 +95,10 @@ dpkg --list | grep -Ei 'linux-image|linux-headers|linux-tools|linux-modules|linu
 Then purge specific old versions (replace with actual package names):
 
 ```bash
-sudo dpkg --purge package1 package2 package3
 sudo apt purge package1 package2 package3
 sudo apt autopurge
 sudo update-grub
 ```
-
----
 
 ## 🌐 Install Google Chrome
 
@@ -117,8 +106,6 @@ sudo update-grub
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
-
----
 
 ## 🎴 Install Node.js
 
@@ -133,12 +120,13 @@ curl -fsSL https://deb.nodesource.com/setup_26.x | sudo bash -
 sudo nala install -y nodejs
 ```
 
----
-
 ## 📦 Global NPM Packages
 
 ```bash
-sudo npm install -g npm@latest corepack@latest npm-check-updates typescript pnpm@latest yarn vite bun
+sudo npm install -g npm@latest corepack@latest npm-check-updates typescript pnpm@latest yarn vite
+# bun will be 350++ MiB
+sudo npm install -g bun
+sudo npm config set allow-scripts=bun,yarn --location=user
 
 # Check for outdated global packages
 sudo npm outdated -g --depth=0
@@ -146,8 +134,6 @@ sudo npm outdated -g --depth=0
 # Update all global packages
 sudo npm update -g
 ```
-
----
 
 ## 📜 Git & SSH Setup
 
@@ -160,16 +146,6 @@ git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 git config --global color.ui auto
 git config --global core.editor "code --wait"
-
-# Better diffs with diff-so-fancy and bat
-git config --global core.pager "diff-so-fancy | bat -p"
-git config --global interactive.diffFilter "diff-so-fancy --patch"
-
-# Push to all remotes at once
-git config --global alias.pushall "\!git remote | xargs -L1 git push --all"
-
-# Disable branch pager (it's on by default for no good reason)
-git config --global pager.branch false
 ```
 
 ### SSH Setup
@@ -219,8 +195,6 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 ssh -T git@github.com
 ```
 
----
-
 ## 🆘 oh-my-posh Setup
 
 ### Installation
@@ -235,8 +209,6 @@ sudo chown -R $USER:$USER ~/.oh-my-posh
 # Use the enclosed `.bashrc` — uncomment your preferred theme at the bottom, then refresh:
 exec bash
 ```
-
----
 
 ## 💾 Export / Load GNOME Settings
 
@@ -260,8 +232,6 @@ dconf dump /org/gnome/shell/extensions/ > aa-gnome-exts-settings.conf
 dconf load /org/gnome/shell/extensions/ < aa-gnome-exts-settings.conf
 ```
 
----
-
 ## 🛸 XTRADEB Packages
 
 Unofficial Ubuntu packages maintained by xtradeb. Prefer **chromium** over ungoogled-chromium since extensions can be installed in it.
@@ -274,8 +244,6 @@ sudo nala update
 sudo nala install yt-dlp parabolic calibre ungoogled-chromium chromium
 ```
 
----
-
 ## ✴️ Suggested & Optional Packages
 
 ### Essential Tools
@@ -287,7 +255,7 @@ sudo nala install curl duf git gnome-calendar gnome-shell-extension-manager gnom
 ### Multimedia Plugins
 
 ```bash
-sudo nala install gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libheif-plugin-libde265
+sudo nala install gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libheif-plugin-libde265 gst-audio-thumbnailer  gst-video-thumbnailer
 ```
 
 ### Multimedia **Ubuntu 24.04**

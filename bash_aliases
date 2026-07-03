@@ -54,7 +54,7 @@ alias gc='git commit -v'                                                    # Co
 alias gca='git commit -v -a'                                                # Commit all changes
 alias gamend='git commit --amend --no-edit'                                 # Quick amend last commit
 alias gundo='git reset --soft HEAD~1'                                       # Undo last commit, keep changes staged
-alias gcf='git commit -m "fixes"' 
+alias gcf='git commit -m "fixes"'
 
 # Stash
 alias gst='git stash push -m'                                               # Stash with message: gst "wip"

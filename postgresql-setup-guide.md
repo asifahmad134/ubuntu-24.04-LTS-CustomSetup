@@ -1,6 +1,5 @@
 # PostgreSQL User Setup Guide
 
-
 ## Prerequisites
 
 Before running any commands, confirm your cluster is running and owned by the `postgres` system user:
@@ -16,7 +15,6 @@ sudo pg_ctlcluster <version> main start
 # Example:
 sudo pg_ctlcluster 16 main start
 ```
-
 
 ## Check Existing Roles
 
@@ -37,7 +35,6 @@ To exit the shell:
 ```sql
 \q
 ```
-
 
 ## Creating or Updating a User Role
 
@@ -105,12 +102,12 @@ export DB_PASSWORD=your_strong_password
 
 ## Quick Reference
 
-| Task | Command |
-|---|---|
-| Check cluster status | `sudo pg_lsclusters` |
-| Open psql as postgres | `sudo -u postgres psql` |
-| List all roles | `\du` (inside psql) |
-| Create new user | `CREATE USER name WITH PASSWORD 'pass';` |
-| Grant superuser | `CREATE USER name WITH SUPERUSER PASSWORD 'pass';` |
-| Update password | `ALTER USER name WITH PASSWORD 'pass';` |
-| Test connection | `psql -U name -d postgres -h 127.0.0.1` |
+| Task                  | Command                                            |
+| --------------------- | -------------------------------------------------- |
+| Check cluster status  | `sudo pg_lsclusters`                               |
+| Open psql as postgres | `sudo -u postgres psql`                            |
+| List all roles        | `\du` (inside psql)                                |
+| Create new user       | `CREATE USER name WITH PASSWORD 'pass';`           |
+| Grant superuser       | `CREATE USER name WITH SUPERUSER PASSWORD 'pass';` |
+| Update password       | `ALTER USER name WITH PASSWORD 'pass';`            |
+| Test connection       | `psql -U name -d postgres -h 127.0.0.1`            |

@@ -89,4 +89,3 @@ fi
 total_saved_mib=$(bytes_to_mib "$total_saved_bytes")
 
 echo -e "${GREEN}Cleanup complete! Total space saved: ${total_saved_mib} MiB${NC}"
-
