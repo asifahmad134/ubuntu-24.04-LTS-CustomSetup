@@ -1,8 +1,4 @@
 {
-  "[erb]": {
-    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
-    "editor.formatOnSave": true
-  },
   "chat.fontSize": 12,
   "debug.console.fontSize": 12,
   "editor.autoClosingBrackets": "always",
@@ -13,7 +9,6 @@
   },
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.foldingStrategy": "auto",
   "editor.fontFamily": "Maple Mono NF",
   "editor.fontLigatures": "'calt', 'zero', 'cv03', 'ss01','ss03','ss09', 'ss10', 'ss11'",
@@ -37,16 +32,11 @@
   "editor.stickyScroll.enabled": true,
   "editor.suggest.snippetsPreventQuickSuggestions": true,
   "editor.wordWrap": "on",
-  "emmet.includeLanguages": [
-    {
-      "jsx": "jsx",
-      "tsx": "tsx"
-    },
-    {
-      "javascript": "javascriptreact",
-      "typescript": "typescriptreact"
-    }
-  ],
+  "emmet.includeLanguages": {
+    "jsx": "javascriptreact",
+    "tsx": "typescriptreact",
+    "erb": "html"
+  },
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
   "extensions.ignoreRecommendations": true,
@@ -54,8 +44,8 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "javascript.preferences.importModuleSpecifier": "shortest",
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.preferences.importModuleSpecifier": "shortest",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "prettier.experimentalTernaries": true,
   "rubyLsp.enabledFeatures": {
@@ -79,6 +69,9 @@
     "typeHierarchy": true
   },
   "scm.inputFontSize": 12,
+  "tailwindCSS.includeLanguages": {
+    "erb": "html"
+  },
   "tailwindCSS.classAttributes": [
     "class",
     "className",
@@ -92,15 +85,19 @@
   "terminal.integrated.fontWeight": "bold",
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.smoothScrolling": true,
-  "typescript.preferences.importModuleSpecifier": "shortest",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "vsicons.dontShowNewVersionMessage": true,
   "window.zoomLevel": 1,
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Spinel",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.scrollToSwitchTabs": true,
-  "workbench.iconTheme": "vscode-icons",
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredLightColorTheme": "Dark 2026"
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Spinel",
+  "workbench.editor.wrapTabs": true,
+  "git.enableSmartCommit": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[erb]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
+  }
 }

@@ -18,6 +18,15 @@ sudo rm /usr/share/code/resources/app/ThirdPartyNotices.txt \
 sudo rm -fdr /usr/share/code/resources/app/licenses
 ```
 
+### antigravity
+
+```bash
+sudo rm /usr/share/antigravity/locales/!("en-GB.pak"|"en-US.pak")
+sudo rm /usr/share/antigravity/resources/app/ThirdPartyNotices.txt \
+        /usr/share/antigravity/LICENSES.chromium.html \
+        /usr/share/antigravity/resources/app/LICENSE.txt
+```
+
 ### Cursor
 
 ```bash

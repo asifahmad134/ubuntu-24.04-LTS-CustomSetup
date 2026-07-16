@@ -9,6 +9,7 @@
 ```bash
 # Check Ubuntu version
 lsb_release -a
+sudo dmidecode -s bios-version
 
 # Display hostname and key system info
 hostnamectl
