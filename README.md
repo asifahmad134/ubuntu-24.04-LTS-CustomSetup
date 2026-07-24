@@ -224,7 +224,7 @@ dconf reset -f /
 dconf dump / > full-gnome-backup.conf
 
 # Load full GNOME settings
-dconf load / < full-gnome-backup.conf
+dconf load / < gnome50-ubuntu-26.04-2026-06-21-settings-backup.conf
 
 # Export GNOME extension settings only
 dconf dump /org/gnome/shell/extensions/ > aa-gnome-exts-settings.conf
@@ -247,16 +247,16 @@ sudo nala install yt-dlp parabolic calibre ungoogled-chromium chromium
 
 ## ✴️ Suggested & Optional Packages
 
-### Essential Tools
-
 ```bash
-sudo nala install curl duf git gnome-calendar gnome-shell-extension-manager gnome-tweaks nautilus-admin gedit gedit-plugins synaptic thunar
-```
+# Essential Tools
+sudo nala install curl git gnome-calendar gnome-shell-extension-manager gnome-tweaks nautilus-admin gedit gedit-plugins thunar 7zip
 
-### Multimedia Plugins
-
-```bash
+# Multimedia Plugins
 sudo nala install gstreamer1.0-libav gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libheif-plugin-libde265 gst-audio-thumbnailer  gst-video-thumbnailer
+
+# Optional
+sudo nala install adb fastboot foliate file-roller rar unrar synaptic
+sudo nala install errands wike wordbook
 ```
 
 ### Multimedia **Ubuntu 24.04**
@@ -268,19 +268,7 @@ sudo nala install amberol totem vlc loupe
 ### Multimedia **Ubuntu 26.04**
 
 ```bash
-sudo nala install gapless showtime clapper vlc gnome-video-trimmer
-```
-
-### Optional Programs combined
-
-```bash
-sudo nala install file-roller rar unrar adb fastboot foliate
-```
-
-### Optional Programs **Ubuntu 26.04**
-
-```bash
-sudo nala install errands wike wordbook
+sudo nala install gapless showtime clapper gnome-video-trimmer vlc
 ```
 
 ### Dev packages for mise/ruby workflow
@@ -296,11 +284,8 @@ sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 sudo apt-get update && sudo apt-get install qbittorrent
 ```
 
-## 🪛 Useful Scripts
+## 🪛 Useful
 
-| Script                                                                                     | Description                                             |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
-| [ubuntu-debullshit.sh](https://github.com/polkaulfield/ubuntu-debullshit)                  | Purges snaps, installs flatpaks, restores vanilla GNOME |
-| [snap-remover.sh](https://gist.github.com/lassekongo83/808b19e034c05d10ac4e3cc259808e4e)   | Completely removes snaps from Ubuntu                    |
-| [snap-cleaner.sh](https://github.com/sakibulalikhan/snap-cleaner)                          | Deletes unnecessary Snap revisions and caches           |
-| [ubuntu_cleanup.sh](https://gist.github.com/Limbicnation/6763b69ab6a406790f3b7d4b56a2f6e8) | Comprehensive cleanup script to free up disk space      |
+[ubuntu-debullshit.sh](https://github.com/polkaulfield/ubuntu-debullshit)
+
+Purges snaps, installs flatpaks, restores vanilla GNOME |
