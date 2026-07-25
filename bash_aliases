@@ -1,37 +1,8 @@
-#### Enhanced Directory Listing with lsd
-
-
-# Tree views with increasing depth and common ignores
-alias l1='lsd --tree --depth 1'
-alias l2='lsd --tree --depth 2'
-alias l3='lsd --tree --depth 3 --git -I node_modules -I public'
-alias l4='lsd --tree --depth 4 --git -I node_modules -I public -I ui'
-alias l5='lsd --tree --depth 5 --git -I node_modules -I public -I ui -I dist -I build'
-
-# Full tree (use sparingly!)
-alias treeall='lsd --tree --git -I node_modules -I public -I ui -I dist -I build'
-
-# Quick listings
-alias lf='lsd -AF'                                                          # Classified (trailing /, *, etc.)
-alias la='lsd -A'                                                           # Almost all (no . and ..)
-alias ll='lsd -l'                                                           # Long format
-
-# Detailed listings with size and sorting
-alias lls='lsd -lF --total-size --group-directories-first'                  # Size summary
-alias lg='lsd -lFS --total-size --git --group-directories-first'            # Sorted by size + git info
-
-# Bonus: Human-readable sizes + icons
-alias lsh='lsd -lhF --total-size --group-directories-first'
-
-
 #### pnpm / bun / Node Development
-
-
-alias pd='pnpm run dev'                                                     # Dev server
+alias pd='pnpm run dev'                                                # Dev server
 alias bd='bun dev'                                                     # Dev server
 
 #### Git Aliases
-
 
 # Pretty log views
 alias gl='git log --oneline --graph --decorate=full --all'                  # Compact graph with all branches

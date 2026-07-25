@@ -221,10 +221,10 @@ gsettings reset org.gnome.desktop.app-folders folder-children
 dconf reset -f /
 
 # Export full GNOME settings
-dconf dump / > full-gnome-backup.conf
+dconf dump / > ubuntu2604.conf
 
 # Load full GNOME settings
-dconf load / < gnome50-ubuntu-26.04-2026-06-21-settings-backup.conf
+dconf load / < ubuntu2604.conf
 
 # Export GNOME extension settings only
 dconf dump /org/gnome/shell/extensions/ > aa-gnome-exts-settings.conf
