@@ -2,6 +2,13 @@
 
 Removes unused locale files from Chromium-based apps. Only English variants are kept.
 
+### Mix
+
+```bash
+sudo rm /usr/share/qt6/translations/!("en-GB.pak"|"en-US.pak")
+```
+
+
 ### Google Chrome
 
 ```bash

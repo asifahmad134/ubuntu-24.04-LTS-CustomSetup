@@ -16,6 +16,11 @@ hostnamectl
 
 # Show disk usage — sorted largest first
 du -h -s * | sort -h -r
+#If you want to delete everything under ~/.config/Code except User/settings.json, you can use find
+find ~/.config/Code -mindepth 1 \
+  ! -path ~/.config/Code/User \
+  ! -path ~/.config/Code/User/settings.json \
+  -delete
 ```
 
 ## ⭐ Update, Upgrade, Fixes & **nala**
@@ -281,7 +286,7 @@ sudo nala install build-essential libssl-dev libreadline-dev pkg-config
 
 ```bash
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
-sudo apt-get update && sudo apt-get install qbittorrent
+sudo nala install qbittorrent
 ```
 
 ## 🪛 Useful
