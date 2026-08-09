@@ -6,6 +6,7 @@ Removes unused locale files from Chromium-based apps. Only English variants are 
 
 ```bash
 sudo rm /usr/share/qt6/translations/!("en-GB.pak"|"en-US.pak")
+sudo rm /opt/helium/locales/!("en-GB.pak"|"en-US.pak")
 ```
 
 
@@ -84,6 +85,13 @@ sudo rm /usr/share/gitkraken/LICENSES.chromium.html /usr/share/gitkraken/LICENSE
 ```bash
 sudo rm /opt/Joplin/locales/!("en-GB.pak"|"en-US.pak")
 sudo rm /opt/Joplin/LICENSES.chromium.html /opt/Joplin/LICENSE.electron.txt
+```
+
+### marktext
+
+```bash
+sudo rm /opt/marktext/locales/!("en-GB.pak"|"en-US.pak")
+sudo rm /opt/marktext/LICENSES.chromium.html /opt/marktext/LICENSE.electron.txt
 ```
 
 ### FreeTube
