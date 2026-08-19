@@ -41,10 +41,14 @@ sudo apt autopurge
 
 ```bash
 sudo apt install nala
-sudo nano /etc/nala/nala.conf
+
 # Edit nala config for binary file sizes:
 # Set to true for MiB, false for MB
+sudo nano /etc/nala/nala.conf
 filesize_binary = true
+
+# or this single command
+sudo sed -i '/^filesize_binary[[:space:]]*=/c\filesize_binary = true' /etc/nala/nala.conf
 ```
 
 ## 🔥 Purge Unnecessary Packages
@@ -209,8 +213,7 @@ ssh -T git@github.com
 sudo bash -c "$(curl -s https://ohmyposh.dev/install.sh)" -- -d /usr/bin
 
 # Move themes to home directory
-sudo mv /root/.cache/oh-my-posh/themes/ ~/.oh-my-posh
-sudo chown -R $USER:$USER ~/.oh-my-posh
+sudo mv /root/.cache/oh-my-posh/themes/ ~/.oh-my-posh && sudo chown -R "$USER:$USER" ~/.oh-my-posh
 
 # Use the enclosed `.bashrc` — uncomment your preferred theme at the bottom, then refresh:
 exec bash
