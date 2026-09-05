@@ -9,6 +9,7 @@ sudo sed -i "s|Icon=zed|Icon=/opt/zed.app/share/icons/hicolor/512x512/apps/zed.p
 ```
 ## firefox
 ```bash
+sudo rm -fdr /opt/firefox/
 sudo tar -xJf firefox-*.tar.xz -C /opt
 sudo ln -sf /opt/firefox/firefox /usr/local/bin/firefox
 sudo wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/install-firefox-linux/firefox.desktop -P /usr/local/share/applications
